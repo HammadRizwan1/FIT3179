@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earthquake Data Visualization</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.19.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.19.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.11.0"></script>
+</head>
+<body>
+    <h1>Earthquake Properties</h1>
+    <div id="bubbleChart"></div>
+    <h1>Earthquake Magnitude Distribution</h1>
+    <div id="barChart"></div>
+    <script>
+        // Vega-Lite bubble chart specification
+        var bubbleChartSpec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 800,
+            "height": 600,
+            "title": "Earthquake Properties Bubble Chart",
+            "data": {
+                "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquake_cleaned.csv"
+            },
+            "layer": [
+                {
+                    "mark": { "type": "circle", "tooltip": true },
+                    "encoding": {
+                        "x": {
+                            "field": "sig",
+                            "type": "quantitative",
+                            "title": "Significance",
+                            "scale": { "domain": [600, 3000] }
+                        },
+                        "y": { "field": "depth", "type": "quantitative", "title": "Depth" },
+                        "size": {
+                            "field": "magnitude",
+                            "type": "quantitative",
+                            "scale": { "type": "linear", "domain": [6, 9], "range": [20, 400] }
+                        },
+                        "color": {
+                            "field": "alert",
+                            "type": "nominal",
+                            "scale": {
+                                "domain": ["green", "orange", "red", "yellow"],
+                                "range": ["#008000", "#FFA500", "#FF0000", "#FFFF00"]
+                            }
+                        },
+                        "tooltip": [
+                            { "field": "title", "type": "nominal", "title": "Title" },
+                            { "field": "sig", "type": "quantitative", "title": "Significance" },
+                            { "field": "depth", "type": "quantitative", "title": "Depth" },
+                            { "field": "alert", "type": "nominal", "title": "Alert Level" },
+                            { "field": "magnitude", "type": "quantitative", "title": "Magnitude" }
+                        ]
+                    }
+                }
+            ],
+            "config": {}
+        };
+
+        // Vega-Lite bar chart specification
+        var barChartSpec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Earthquake Magnitude Distribution",
+            "data": {
+                "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquake_cleaned.csv"
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "magnitude",
+                    "type": "quantitative",
+                    "bin": true,
+                    "axis": { "title": "Magnitude Bins" }
+                },
+                "y": {
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "axis": { "title": "Frequency" }
+                }
+            },
+            "width": 600,
+            "config": {}
+        };
+
+        // Embed the visualizations
+        vegaEmbed("#bubbleChart", bubbleChartSpec);
+        vegaEmbed("#barChart", barChartSpec);
+    </script>
+</body>
+</html>
