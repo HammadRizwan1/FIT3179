@@ -1,0 +1,23 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Earthquake Magnitude Distribution",
+  "data": {
+    "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquake_cleaned.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "magnitude",
+      "type": "quantitative",
+      "bin": true,
+      "axis": {"title": "Magnitude Bins"}
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "axis": {"title": "Frequency"}
+    }
+  },
+  "width": 600,
+  "config": {}
+}
