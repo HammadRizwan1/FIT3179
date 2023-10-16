@@ -1,22 +1,79 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earthquake Data Visualization</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.19.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.19.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.11.0"></script>
+    <title>Earthquake Data Visualizations</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        .visualization {
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Earthquake Properties</h1>
-    <div id="bubbleChart"></div>
-    <h1>Earthquake Magnitude Distribution</h1>
-    <div id="barChart"></div>
-    <script>
-        // Vega-Lite bubble chart specification
-        var bubbleChartSpec = {
+
+    <div class="page">
+
+        <!-- Earthquake Properties Bubble Chart -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1>Earthquake Properties Bubble Chart</h1>
+                <p></p>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="visualization" id="earthquake-bubble-chart"></div>
+            </div>
+        </div>
+
+        <!-- Earthquake Magnitude Distribution -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1>Earthquake Magnitude Distribution</h1>
+                <p>The "Earthquake Magnitude Distribution" graph provides a visual representation of the distribution of 
+                earthquake magnitudes over a specific period. This graph offers valuable insights into the frequency and 
+                of seismic activity, which is a fundamental aspect of understanding earthquake patterns.</p>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="visualization" id="earthquake-magnitude-distribution"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        // Define your Vega-Lite earthquake bubble chart specification
+        var earthquakeBubbleChartSpec = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
             "width": 800,
             "height": 600,
@@ -26,7 +83,10 @@
             },
             "layer": [
                 {
-                    "mark": { "type": "circle", "tooltip": true },
+                    "mark": {
+                        "type": "circle",
+                        "tooltip": true
+                    },
                     "encoding": {
                         "x": {
                             "field": "sig",
@@ -38,7 +98,11 @@
                         "size": {
                             "field": "magnitude",
                             "type": "quantitative",
-                            "scale": { "type": "linear", "domain": [6, 9], "range": [20, 400] }
+                            "scale": {
+                                "type": "linear",
+                                "domain": [6, 9],
+                                "range": [20, 400]
+                            }
                         },
                         "color": {
                             "field": "alert",
@@ -57,12 +121,11 @@
                         ]
                     }
                 }
-            ],
-            "config": {}
+            ]
         };
 
-        // Vega-Lite bar chart specification
-        var barChartSpec = {
+        // Define your Vega-Lite earthquake magnitude distribution specification
+        var earthquakeMagnitudeDistributionSpec = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
             "title": "Earthquake Magnitude Distribution",
             "data": {
@@ -82,13 +145,14 @@
                     "axis": { "title": "Frequency" }
                 }
             },
-            "width": 600,
-            "config": {}
+            "width": 600
         };
 
-        // Embed the visualizations
-        vegaEmbed("#bubbleChart", bubbleChartSpec);
-        vegaEmbed("#barChart", barChartSpec);
+        // Embed the earthquake bubble chart and magnitude distribution chart
+        vegaEmbed('#earthquake-bubble-chart', earthquakeBubbleChartSpec);
+        vegaEmbed('#earthquake-magnitude-distribution', earthquakeMagnitudeDistributionSpec);
     </script>
+
 </body>
+
 </html>
