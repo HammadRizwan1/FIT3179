@@ -44,7 +44,6 @@
             border: 1px solid #ccc;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             background-color: #fff;
-            text-align: center;
         }
 
         h1 {
@@ -63,6 +62,17 @@
             color: #666;
             margin-top: 10px;
         }
+
+        /* Two-column layout */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 48%; /* Adjust as needed */
+        }
     </style>
 </head>
 
@@ -72,11 +82,11 @@
         <h1>Earthquake Visualization</h1>
 
         <!-- Earthquake Properties Bubble Chart -->
-        <div class="pure-g">
-            <div class="pure-u-1-1">
+        <div class="row">
+            <div class="column">
                 <div class="visualization" id="earthquake-bubble-chart"></div>
             </div>
-            <div class="pure-u-1-1">
+            <div class="column">
                 <div class="description">
                     <h2>Earthquake Properties Bubble Chart</h2>
                     <p>The "Earthquake Properties Bubble Chart" is a dynamic and informative visualization that offers a comprehensive view of earthquake characteristics, combining depth, significance, alert level, and magnitude in a single graphical representation. This chart is a powerful tool for understanding and comparing earthquake properties across a range of seismic events.</p>
@@ -85,11 +95,11 @@
         </div>
 
         <!-- Earthquake Magnitude Distribution -->
-        <div class="pure-g">
-            <div class="pure-u-1-1">
+        <div class="row">
+            <div class="column">
                 <div class="visualization" id="earthquake-magnitude-distribution"></div>
             </div>
-            <div class="pure-u-1-1">
+            <div class="column">
                 <div class="description">
                     <h2>Earthquake Magnitude Distribution</h2>
                     <p>The "Earthquake Magnitude Distribution" graph provides a visual representation of the distribution of earthquake magnitudes over a specific period. This graph offers valuable insights into the frequency and of seismic activity, which is a fundamental aspect of understanding earthquake patterns.</p>
@@ -98,11 +108,11 @@
         </div>
 
         <!-- Average Depth by Location -->
-        <div class="pure-g">
-            <div class="pure-u-1-1">
+        <div class="row">
+            <div class="column">
                 <div class="visualization" id="average-depth-by-location"></div>
             </div>
-            <div class="pure-u-1-1">
+            <div class="column">
                 <div class="description">
                     <h2>Average Depth by Location</h2>
                     <p>The "Average Depth by Location" graph displays the average depth of earthquakes by country. It provides insights into how earthquake depths vary across different countries.</p>
@@ -111,11 +121,11 @@
         </div>
 
         <!-- Time Series of Earthquake Frequencies -->
-        <div class="pure-g">
-            <div class="pure-u-1-1">
+        <div class="row">
+            <div class="column">
                 <div class="visualization" id="time-series-of-earthquake-frequencies"></div>
             </div>
-            <div class="pure-u-1-1">
+            <div class="column">
                 <div class="description">
                     <h2>Time Series of Earthquake Frequencies</h2>
                     <p>The "Time Series of Earthquake Frequencies" chart shows how the number of earthquakes has varied over time. It helps in understanding the temporal patterns of earthquake occurrences.</p>
