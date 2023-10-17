@@ -9,15 +9,21 @@
     "x": {
       "field": "magnitude",
       "type": "quantitative",
-      "bin": true,
-      "axis": {"title": "Magnitude Bins"}
+      "bin": {"maxbins": 20}, 
+      "axis": {"title": "Magnitude"},
+      "scale": {"zero": false} 
     },
     "y": {
       "aggregate": "count",
       "type": "quantitative",
-      "axis": {"title": "Frequency"}
-    }
+      "axis": {"title": "Frequency"},
+      "scale": {"nice": true} 
+    },
+    "color": {"value": "steelblue"} 
   },
-  "width": 600,
-  "config": {}
+  "width": 800,
+  "height": 400, 
+  "config": {
+    "view": {"stroke": "transparent"} 
+  }
 }
