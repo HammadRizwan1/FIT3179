@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earthquake Data Visualizations</title>
+    <title>Earthquake Visualization</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -16,19 +16,31 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
-            text-align: center;
             background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        #bubbleChart,
+        #barChart {
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 20px;
         }
 
         .visualization {
             margin: 20px auto;
             border: 1px solid #ccc;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            color: #333;
+            padding: 20px;
+            background-color: #fff;
         }
 
         p {
@@ -45,13 +57,7 @@
         <div class="pure-g">
             <div class="pure-u-1-1">
                 <h1>Earthquake Properties Bubble Chart</h1>
-                <p>The "Earthquake Properties Bubble Chart" is a dynamic and informative visualization that offers a comprehensive view of 
-                    earthquake characteristics, combining depth, significance, alert level, and magnitude in a single graphical representation. 
-                    This chart is a powerful tool for understanding and comparing earthquake properties across a range of seismic events.</p>
-            </div>
-        </div>
-        <div class="pure-g">
-            <div class="pure-u-1-1">
+                <p>The "Earthquake Properties Bubble Chart" is a dynamic and informative visualization that offers a comprehensive view of earthquake characteristics, combining depth, significance, alert level, and magnitude in a single graphical representation. This chart is a powerful tool for understanding and comparing earthquake properties across a range of seismic events.</p>
                 <div class="visualization" id="earthquake-bubble-chart"></div>
             </div>
         </div>
@@ -60,14 +66,26 @@
         <div class="pure-g">
             <div class="pure-u-1-1">
                 <h1>Earthquake Magnitude Distribution</h1>
-                <p>The "Earthquake Magnitude Distribution" graph provides a visual representation of the distribution of 
-                earthquake magnitudes over a specific period. This graph offers valuable insights into the frequency and 
-                of seismic activity, which is a fundamental aspect of understanding earthquake patterns.</p>
+                <p>The "Earthquake Magnitude Distribution" graph provides a visual representation of the distribution of earthquake magnitudes over a specific period. This graph offers valuable insights into the frequency and of seismic activity, which is a fundamental aspect of understanding earthquake patterns.</p>
+                <div class="visualization" id="earthquake-magnitude-distribution"></div>
             </div>
         </div>
+
+        <!-- Average Depth by Location -->
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <div class="visualization" id="earthquake-magnitude-distribution"></div>
+                <h1>Average Depth by Location</h1>
+                <p>The "Average Depth by Location" graph displays the average depth of earthquakes by country. It provides insights into how earthquake depths vary across different countries.</p>
+                <div class="visualization" id="average-depth-by-location"></div>
+            </div>
+        </div>
+
+        <!-- Time Series of Earthquake Frequencies -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1>Time Series of Earthquake Frequencies</h1>
+                <p>The "Time Series of Earthquake Frequencies" chart shows how the number of earthquakes has varied over time. It helps in understanding the temporal patterns of earthquake occurrences.</p>
+                <div class="visualization" id="time-series-of-earthquake-frequencies"></div>
             </div>
         </div>
 
@@ -77,10 +95,14 @@
         // URLs to your Vega-Lite specifications
         var earthquakeBubbleChartURL = './json/bubblechart.json';
         var earthquakeMagnitudeDistributionURL = './json/MagnitudeBins.json';
+        var averageDepthByLocationURL = './json/Depth_by_Location_barchart.json';
+        var timeSeriesOfEarthquakeFrequenciesURL = './json/TimeSeries.json';
 
         // Embed the visualizations
         vegaEmbed('#earthquake-bubble-chart', earthquakeBubbleChartURL);
         vegaEmbed('#earthquake-magnitude-distribution', earthquakeMagnitudeDistributionURL);
+        vegaEmbed('#average-depth-by-location', averageDepthByLocationURL);
+        vegaEmbed('#time-series-of-earthquake-frequencies', timeSeriesOfEarthquakeFrequenciesURL);
     </script>
 
 </body>
