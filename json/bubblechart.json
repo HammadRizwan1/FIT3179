@@ -4,7 +4,7 @@
   "height": 600,
   "title": "Earthquake Properties Bubble Chart",
   "data": {
-    "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquake_cleaned.csv"
+    "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquakes_cleaned_countries.csv"
   },
   "layer": [
     {
