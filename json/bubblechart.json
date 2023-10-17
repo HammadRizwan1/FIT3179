@@ -54,10 +54,10 @@
     }
   ],
   "config": {
-    "view": {"stroke": "transparent"}, // Remove chart border
-    "axis": {"grid": false}, // Remove gridlines
-    "background": "white", // Set background to white
-    "legend": {"orient": "right", "titleFontWeight": "normal"} // Customize legend placement and font weight
+    "view": {"stroke": "transparent"},
+    "axis": {"grid": false},
+    "background": "white",
+    "legend": {"orient": "right", "titleFontWeight": "normal"} 
   }
 }
 
