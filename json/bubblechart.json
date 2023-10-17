@@ -11,9 +11,9 @@
       "mark": {
         "type": "circle",
         "tooltip": {"content": "encoding"},
-        "opacity": 0.7, // Add opacity for better visibility of overlapping bubbles
-        "stroke": "white", // Add white stroke for better bubble separation
-        "strokeWidth": 1 // Customize stroke width
+        "opacity": 0.7,
+        "stroke": "black",
+        "strokeWidth": 0.5
       },
       "encoding": {
         "x": {
@@ -26,13 +26,13 @@
           "field": "depth",
           "type": "quantitative",
           "title": "Depth",
-          "scale": {"domain": [0, 700]} // Customize the y-axis domain
+          "scale": {"domain": [0, 700]}
         },
         "size": {
           "field": "magnitude",
           "type": "quantitative",
           "title": "Magnitude",
-          "scale": {"type": "sqrt", "domain": [6, 9], "range": [20, 400]} // Use square root scale for size
+          "scale": {"type": "sqrt", "domain": [6, 9], "range": [20, 400]}
         },
         "color": {
           "field": "alert",
@@ -56,7 +56,8 @@
   "config": {
     "view": {"stroke": "transparent"}, // Remove chart border
     "axis": {"grid": false}, // Remove gridlines
-    "background": "#a29a9a" // Add a light background color
+    "background": "white", // Set background to white
+    "legend": {"orient": "right", "titleFontWeight": "normal"} // Customize legend placement and font weight
   }
 }
 
