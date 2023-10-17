@@ -23,8 +23,8 @@
       "scale": {"zero": true} 
     }
   },
-  "width": 1000,
-  "height": 400,
+  "width": 1200,
+  "height": 600,
   "config": {
     "view": {"stroke": "transparent"},
     "axis": {"grid": false},
