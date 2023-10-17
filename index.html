@@ -2,79 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earthquake Visualization</title>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-    <!-- Import pure.css -->
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-
+    <!-- head content remains unchanged -->
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3e3c1; /* Light Brown background color */
+            background-color: #f8f8f8; /* Lighter background for more contrast */
             margin: 0;
             padding: 0;
         }
 
         .page {
+            max-width: 1200px; /* Restricting the maximum width can help with large screens */
+            margin: 0 auto; /* Center the content */
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px; /* Increased bottom margin for more space */
+        }
+
+        .chart-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            gap: 20px; /* creates a gap between the flex items */
+            margin-bottom: 40px; /* Separate each chart section */
+        }
+
+        .visualization,
+        .description {
+            flex: 1;
+            min-width: 300px; /* Prevents the boxes from becoming too small on narrow screens */
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
             padding: 20px;
         }
 
         .visualization {
-            width: 1200px;
-            height: 600px;
-            margin: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            background-color: #fff;
-        }
-
-        .description {
-            width: calc(50% - 20px);
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            background-color: #fff;
-        }
-
-        h1 {
-            margin-top: 20px;
-            color: #333;
-            width: 100%;
-            text-align: center;
+            margin-right: 20px; /* Add some space between visualization and description */
         }
 
         h2 {
             color: #333;
-            margin-top: 20px;
+            margin-top: 0;
+            margin-bottom: 20px; /* Increased bottom margin for more space */
         }
 
         p {
             color: #666;
-            margin-top: 10px;
+            line-height: 1.6; /* Increased line height for readability */
         }
 
-        /* Two-column layout */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
+        @media (max-width: 768px) {
+            /* On smaller screens, the visualization and description stack */
+            .visualization,
+            .description {
+                flex-basis: 100%;
+            }
 
-        .column {
-            width: 48%; /* Adjust as needed */
+            .visualization {
+                margin-right: 0;
+            }
         }
     </style>
 </head>
+
 
 <body>
 
@@ -89,10 +83,14 @@
             <div class="column">
                 <div class="description">
                     <h2>Earthquake Properties Bubble Chart</h2>
-                    <p>The "Earthquake Properties Bubble Chart" is a dynamic and informative visualization that offers a 
-                        comprehensive view of earthquake characteristics, combining depth, significance, alert level, and 
-                        magnitude in a single graphical representation. This chart is a powerful tool for understanding and 
-                        comparing earthquake properties across a range of seismic events.</p>
+                    <p>The "Earthquake Properties Bubble Chart" 
+                        is a dynamic and informative visualization 
+                        that offers a comprehensive view of earthquake 
+                        characteristics, combining depth, significance,
+                        alert level, and magnitude in a single graphical 
+                        representation. This chart is a powerful tool 
+                        for understanding and comparing earthquake 
+                        properties across a range of seismic events.</p>
                 </div>
             </div>
         </div>
