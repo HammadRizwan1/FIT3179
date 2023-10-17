@@ -74,85 +74,13 @@
     </div>
 
     <script type="text/javascript">
-        // Define your Vega-Lite earthquake bubble chart specification
-        var earthquakeBubbleChartSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "width": 800,
-            "height": 600,
-            "title": "Earthquake Properties Bubble Chart",
-            "data": {
-                "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquake_cleaned.csv"
-            },
-            "layer": [
-                {
-                    "mark": {
-                        "type": "circle",
-                        "tooltip": true
-                    },
-                    "encoding": {
-                        "x": {
-                            "field": "sig",
-                            "type": "quantitative",
-                            "title": "Significance",
-                            "scale": { "domain": [600, 3000] }
-                        },
-                        "y": { "field": "depth", "type": "quantitative", "title": "Depth" },
-                        "size": {
-                            "field": "magnitude",
-                            "type": "quantitative",
-                            "scale": {
-                                "type": "linear",
-                                "domain": [6, 9],
-                                "range": [20, 400]
-                            }
-                        },
-                        "color": {
-                            "field": "alert",
-                            "type": "nominal",
-                            "scale": {
-                                "domain": ["green", "orange", "red", "yellow"],
-                                "range": ["#008000", "#FFA500", "#FF0000", "#FFFF00"]
-                            }
-                        },
-                        "tooltip": [
-                            { "field": "title", "type": "nominal", "title": "Title" },
-                            { "field": "sig", "type": "quantitative", "title": "Significance" },
-                            { "field": "depth", "type": "quantitative", "title": "Depth" },
-                            { "field": "alert", "type": "nominal", "title": "Alert Level" },
-                            { "field": "magnitude", "type": "quantitative", "title": "Magnitude" }
-                        ]
-                    }
-                }
-            ]
-        };
+        // URLs to your Vega-Lite specifications
+        var earthquakeBubbleChartURL = './json/bubblechart.json';
+        var earthquakeMagnitudeDistributionURL = './json/MagnitudeBins.json';
 
-        // Define your Vega-Lite earthquake magnitude distribution specification
-        var earthquakeMagnitudeDistributionSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "title": "Earthquake Magnitude Distribution",
-            "data": {
-                "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquake_cleaned.csv"
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "magnitude",
-                    "type": "quantitative",
-                    "bin": true,
-                    "axis": { "title": "Magnitude Bins" }
-                },
-                "y": {
-                    "aggregate": "count",
-                    "type": "quantitative",
-                    "axis": { "title": "Frequency" }
-                }
-            },
-            "width": 600
-        };
-
-        // Embed the earthquake bubble chart and magnitude distribution chart
-        vegaEmbed('#earthquake-bubble-chart', earthquakeBubbleChartSpec);
-        vegaEmbed('#earthquake-magnitude-distribution', earthquakeMagnitudeDistributionSpec);
+        // Embed the visualizations
+        vegaEmbed('#earthquake-bubble-chart', earthquakeBubbleChartURL);
+        vegaEmbed('#earthquake-magnitude-distribution', earthquakeMagnitudeDistributionURL);
     </script>
 
 </body>
