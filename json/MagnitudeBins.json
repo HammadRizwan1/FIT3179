@@ -21,8 +21,8 @@
     },
     "color": {"value": "steelblue"} 
   },
-  "width": 1200,
-  "height": 600, 
+  "width": 800,
+  "height": 500, 
   "config": {
     "view": {"stroke": "transparent"} 
   }
