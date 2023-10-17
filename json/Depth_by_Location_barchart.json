@@ -4,17 +4,31 @@
   "data": {
     "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquakes_cleaned_countries.csv"
   },
-  "mark": "bar",
+  "mark": {
+    "type": "bar",
+    "tooltip": true,
+    "color": "#4e79a7"
+  },
   "encoding": {
-    "x": {"field": "country", "type": "nominal", "axis": {"title": "Country"}},
+    "x": {
+      "field": "country",
+      "type": "nominal",
+      "axis": {"title": "Country", "labelAngle": 45, "labelAlign": "left"} 
+    },
     "y": {
       "aggregate": "average",
       "field": "depth",
       "type": "quantitative",
-      "axis": {"title": "Average Depth (km)"}
+      "axis": {"title": "Average Depth (km)"},
+      "scale": {"zero": true} 
     }
   },
   "width": 1000,
   "height": 400,
-  "config": {}
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"grid": false},
+    "background": "white", 
+    "bar": {"cornerRadius": 4} 
+  }
 }
