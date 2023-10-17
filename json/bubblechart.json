@@ -8,7 +8,13 @@
   },
   "layer": [
     {
-      "mark": {"type": "circle", "tooltip": true},
+      "mark": {
+        "type": "circle",
+        "tooltip": {"content": "encoding"},
+        "opacity": 0.7, // Add opacity for better visibility of overlapping bubbles
+        "stroke": "white", // Add white stroke for better bubble separation
+        "strokeWidth": 1 // Customize stroke width
+      },
       "encoding": {
         "x": {
           "field": "sig",
@@ -16,15 +22,22 @@
           "title": "Significance",
           "scale": {"domain": [600, 3000]}
         },
-        "y": {"field": "depth", "type": "quantitative", "title": "Depth"},
+        "y": {
+          "field": "depth",
+          "type": "quantitative",
+          "title": "Depth",
+          "scale": {"domain": [0, 700]} // Customize the y-axis domain
+        },
         "size": {
           "field": "magnitude",
           "type": "quantitative",
-          "scale": {"type": "linear", "domain": [6, 9], "range": [20, 400]}
+          "title": "Magnitude",
+          "scale": {"type": "sqrt", "domain": [6, 9], "range": [20, 400]} // Use square root scale for size
         },
         "color": {
           "field": "alert",
           "type": "nominal",
+          "title": "Alert Level",
           "scale": {
             "domain": ["green", "orange", "red", "yellow"],
             "range": ["#008000", "#FFA500", "#FF0000", "#FFFF00"]
@@ -40,5 +53,10 @@
       }
     }
   ],
-  "config": {}
+  "config": {
+    "view": {"stroke": "transparent"}, // Remove chart border
+    "axis": {"grid": false}, // Remove gridlines
+    "background": "#a29a9a" // Add a light background color
+  }
 }
+
