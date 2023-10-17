@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Average Depth by Location",
+  "data": {
+    "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquake_cleaned.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "country", "type": "nominal", "axis": {"title": "Country"}},
+    "y": {
+      "aggregate": "average",
+      "field": "depth",
+      "type": "quantitative",
+      "axis": {"title": "Average Depth (km)"}
+    }
+  },
+  "width": 1000,
+  "height": 400,
+  "config": {}
+}
