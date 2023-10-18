@@ -2,7 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Time Series of Earthquake Frequencies",
   "data": {
-    "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquakes_cleaned_countries.csv"
+    "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquakes_cleaned_countries.csv",
+    "format": {
+      "type": "csv",
+      "parse": {"date_time": "utc:'%d/%m/%Y %H:%M'"}
+    }
   },
   "mark": "line",
   "encoding": {
@@ -15,11 +19,11 @@
     "y": {
       "aggregate": "count",
       "type": "quantitative",
-      "axis": {"title": "Number of Earthquakes"},
-      "scale": {"domain": [0, 20]}
+      "axis": {"title": "Number of Earthquakes"}
     }
   },
   "width": 800,
-  "height": 500,
+  "height": 400,
   "config": {}
 }
+
