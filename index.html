@@ -28,14 +28,15 @@
         h1 {
             color: #333;
             text-align: center;
-            font-size: 50px;
+            font-size: 36px;
             font-weight: bold;
+            margin-bottom: 20px; /* Added margin for spacing */
         }
 
         .visualization-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 20px; 
             margin-top: 20px;
             flex-wrap: wrap;
         }
@@ -49,26 +50,25 @@
         }
 
         .visualization {
-            flex-basis: 75%;
-            max-width: 1000px;
-            min-height: 650px;
+            flex-basis: 75%; /* Larger size for visualization */
+            max-width: 1000px; 
+            min-height: 650px; /* Adjusted for new layout */
         }
 
         .description {
-            flex-basis: 20%;
+            flex-basis: 20%; /* Smaller size for description */
         }
 
         h2, p {
             color: #333;
-            margin: 0 0 10px 0;
+            margin: 0 0 10px 0; 
         }
-
 
         .description h2 {
-            font-size: 18px; 
-            font-family: "Helvetica Neue", Arial;
-            font-weight: bold;
-        }
+        font-size: 18px;
+        font-family: Arial, sans-serif; /* Use a more common font */
+        font-weight: bold;
+}
     </style>
 </head>
 
@@ -77,8 +77,8 @@
     <div class="page">
         <h1>Earthquake Visualization</h1>
 
-        <!-- Map Visualization -->
         <div class="visualization-container">
+            <!-- New section for the map visualization -->
             <div class="visualization" id="map-visualization"></div>
             <div class="description">
                 <h2>Global Earthquake Map</h2>
@@ -86,7 +86,7 @@
             </div>
         </div>
         
-        <!-- Earthquake Properties Bubble Chart -->
+                <!-- Earthquake Properties Bubble Chart -->
         <div class="visualization-container">
             <div class="visualization" id="earthquake-bubble-chart"></div>
             <div class="description">
@@ -118,7 +118,7 @@
             <div class="visualization" id="time-series-of-earthquake-frequencies"></div>
             <div class="description">
                 <h2>Earthquake Frequencies</h2>
-                <p>The "Time Series of Earthquake Frequencies" chart shows how the number of earthquakes has varied over time. It helps in understanding the temporal patterns of earthquake occurrences.</p>
+                <p>the "Time Series of Earthquake Frequencies" chart shows how the number of earthquakes has varied over time. It helps in understanding the temporal patterns of earthquake occurrences.</p>
             </div>
         </div>
 
@@ -141,3 +141,4 @@
 </body>
 
 </html>
+
