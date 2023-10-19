@@ -47,18 +47,18 @@
         .description {
             background-color: #fff;
             border: 1px solid #ccc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 4px 8px 8px rgba(131, 112, 112, 0.1);
             padding: 20px;
         }
 
         .visualization {
-            flex-basis: 75%; /* Larger size for visualization */
+            flex-basis: 85%; /* Larger size for visualization */
             max-width: 1000px; 
             min-height: 600px; /* Adjusted for new layout */
         }
 
         .description {
-            flex-basis: 20%; /* Smaller size for description */
+            flex-basis: 15%; /* Smaller size for description */
         }
 
         h2, p {
@@ -70,7 +70,9 @@
         font-size: 18px;
         font-family: Arial, sans-serif; /* Use a more common font */
         font-weight: bold;
-}
+
+        }
+        
     </style>
 </head>
 
@@ -78,6 +80,10 @@
 
     <div class="page">
         <h1>Earthquake Visualization</h1>
+
+        <div class="main-description">
+            <h3>This interactive dashboard presents a series of visualizations that collectively provide in-depth insights into global earthquake data. It covers various aspects including geographical distribution, magnitude, depth, frequency over time, and other relevant properties of recorded seismic events. Through these diverse visual representations, users can grasp the complexities of earthquake occurrences, understand patterns, identify high-risk areas, and analyze trends over time. This holistic view is crucial for researchers, policymakers, and anyone interested in the intricate dynamics of earthquakes.</h3>
+        </div>
 
         <div class="visualization-container">
             <!-- New section for the map visualization -->
