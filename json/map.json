@@ -2,11 +2,12 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Average Earthquake Magnitude by Country",
   "width": 800,
-  "height": 800,
+  "height": 400,
   "projection": {"type": "equirectangular"},
   "data": {
     "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/ne_110m.json",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+  
   },
   "layer": [
     {
@@ -44,11 +45,8 @@
           "field": "magnitude",
           "title": "Average Magnitude",
           "type": "quantitative",
-          "scale": {
-            "type": "threshold",
-            "domain": [6, 7, 8, 9],
-            "range": ["#f5deb3", "#deb887", "#a0522d", "#8b4513"]
-          }
+          "scale": {"scheme": "browns"},
+          "legend": {"orient": "bottom", "titleOrient": "top", "gradientLength": 300}
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
@@ -64,7 +62,7 @@
       "data": {
         "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/earthquakes_cleaned_countries.csv"
       },
-      "mark": {"type": "circle", "color": "#ff0000", "size": 15},
+      "mark": {"type": "circle", "color": "#ff0000", "size": 12},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
