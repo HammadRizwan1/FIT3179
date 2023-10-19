@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Average Earthquake Magnitude by Country",
-  "width": 850,
-  "height": 650,
+  "width": 800,
+  "height": 700,
   "projection": {"type": "equirectangular"},
   "data": {
     "url": "https://raw.githubusercontent.com/HammadRizwan1/FIT3179/main/ne_110m.json",
